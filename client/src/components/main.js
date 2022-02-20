@@ -17,7 +17,7 @@ export default props => {
               props.setPage(1);
             }}
           >
-            Book a Table
+          Book a Table
           </Button>
         </Col>
       </Row>

@@ -4,7 +4,7 @@ import { Navbar, NavbarBrand } from "reactstrap";
 export default props => {
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar color="dark" light expand="md">
         <NavbarBrand
           className="nav-brand"
           onClick={_ => {

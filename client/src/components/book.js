@@ -35,7 +35,7 @@ export default props => {
   });
 
   // List of potential locations
-  const [locations] = useState(["Any Location", "Patio", "Inside", "Bar"]);
+  const [locations] = useState(["Any Location", "Patio", "Inside", "Bar", "BLUE DS"]);
   const [times] = useState([
     "9AM",
     "10AM",
@@ -123,6 +123,7 @@ export default props => {
       setReservationError(true);
     } else {
       const datetime = getDate();
+      console.log("making request...")
       let res = await fetch("http://localhost:3005/reserve", {
         method: "POST",
         headers: {
@@ -130,6 +131,7 @@ export default props => {
         },
         body: JSON.stringify({
           ...booking,
+          site: 'Blue Donkey', 
           date: datetime,
           table: selection.table.id
         })
@@ -181,7 +183,7 @@ export default props => {
   // Generate locations dropdown
   const getLocations = _ => {
     let newLocations = [];
-    locations.forEach(loc => {
+    locations.forEach( (loc) => {
       newLocations.push(
         <DropdownItem
           key={loc}
@@ -268,20 +270,9 @@ export default props => {
       <Row noGutters className="text-center align-items-center pizza-cta">
         <Col>
           <p className="looking-for-pizza">
-            {!selection.table.id ? "Book a Table" : "Confirm Reservation"}
-            <i
-              className={
-                !selection.table.id
-                  ? "fas fa-chair pizza-slice"
-                  : "fas fa-clipboard-check pizza-slice"
-              }
-            ></i>
+            Book a Table
           </p>
-          <p className="selected-table">
-            {selection.table.id
-              ? "You are booking table " + selection.table.name
-              : null}
-          </p>
+          
 
           {reservationError ? (
             <p className="reservation-error">
@@ -291,7 +282,7 @@ export default props => {
         </Col>
       </Row>
 
-      {!selection.table.id ? (
+      
         <div id="reservation-stuff">
           <Row noGutters className="text-center align-items-center">
             <Col xs="12" sm="3">
@@ -357,35 +348,9 @@ export default props => {
               </UncontrolledDropdown>
             </Col>
           </Row>
-          <Row noGutters className="tables-display">
-            <Col>
-              {getEmptyTables() > 0 ? (
-                <p className="available-tables">{getEmptyTables()} available</p>
-              ) : null}
 
-              {selection.date && selection.time ? (
-                getEmptyTables() > 0 ? (
-                  <div>
-                    <div className="table-key">
-                      <span className="empty-table"></span> &nbsp; Available
-                      &nbsp;&nbsp;
-                      <span className="full-table"></span> &nbsp; Unavailable
-                      &nbsp;&nbsp;
-                    </div>
-                    <Row noGutters>{getTables()}</Row>
-                  </div>
-                ) : (
-                  <p className="table-display-message">No Available Tables</p>
-                )
-              ) : (
-                <p className="table-display-message">
-                  Please select a date and time for your reservation.
-                </p>
-              )}
-            </Col>
-          </Row>
         </div>
-      ) : (
+      
         <div id="confirm-reservation-stuff">
           <Row
             noGutters
@@ -451,7 +416,7 @@ export default props => {
             </Col>
           </Row>
         </div>
-      )}
+      
     </div>
   );
 };
