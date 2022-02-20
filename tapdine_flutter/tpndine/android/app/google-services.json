@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "862545498918",
+    "project_id": "tapndine-c731e",
+    "storage_bucket": "tapndine-c731e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862545498918:android:a05f63508b0dfe3fec67e7",
+        "android_client_info": {
+          "package_name": "com.opex.tapndine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "862545498918-vjpnil2h1miv3n5cm8flgesrglo6beg8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA68_P3fVMDqr2E1t2zHmF3EDsPADrdnTY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "862545498918-vjpnil2h1miv3n5cm8flgesrglo6beg8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
